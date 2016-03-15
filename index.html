@@ -7,8 +7,13 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <form id="form-container" class="form-container">
+          <label for="search">Search: </label><input type="text" id="search" value="">
+          <button id="submit-btn">Submit</button>
+  </form>
+
   <div id="map"></div>
-  
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6QKclA8PlqBrOgpBr4t5RSjwRDfndaLI&callback=initMap"
   async defer></script>
   <script src="js/lib/jquery/jquery.js"></script>
