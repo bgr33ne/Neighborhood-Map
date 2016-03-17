@@ -4,19 +4,35 @@
   <title>My Neighborhood Map Project</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <form id="form-container" class="form-container">
-          <label for="search">Search: </label><input type="text" id="search" value="">
-          <button id="submit-btn">Submit</button>
-  </form>
-  <button id="list-view">Click for List-View</button>
+  <div ="container-fluid">
+    <div class="row-fluid">
+      <div class="col-xs-8 col-sm-6 col-md-6">
+        <form id="form-container" class="form-container">
+        <label for="search"></label><input type="text" id="search" placeholder="Search">
+        <br>
+        <button id="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  <div ="row-fluid">
+    <div class="col-xs-8 col-sm8 col-md-8">
+      <div id="map"></div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4">
+      <button id="list-view">Click for List</button>
+    </div>
+  </div>
 
-  <div id="map"></div>
+
+
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6QKclA8PlqBrOgpBr4t5RSjwRDfndaLI&callback=initMap"
   async defer></script>
+
   <script src="js/lib/jquery/jquery.js"></script>
   <script src="js/lib/knockout/knockout-3.2.0.js"></script>
   <script src="js/app.js"></script>
