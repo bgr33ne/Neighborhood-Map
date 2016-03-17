@@ -11,13 +11,22 @@ var ViewModel = function() {
 
 };
 
-var map;
 function initMap() {
+
+  //move these into the initial objects and pass into function
+  var myLatLng = {lat: 40.765353, lng: -73.979924};
+
   console.log('new map coming!');
   var mapDiv = document.getElementById('map');
-  map = new google.maps.Map(mapDiv, {
-    center: new google.maps.LatLng(40.765353, -73.979924),
+  var map = new google.maps.Map(mapDiv, {
+    center: myLatLng,
     zoom: 15
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
   });
 
   // We add a DOM event here to show an alert if the DIV containing the
