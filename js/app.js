@@ -1,4 +1,4 @@
-var initialLocations = [
+var initialMap = [
   {
     name: 'Carnegie Hall',
     lat: 40.765353,
@@ -6,8 +6,26 @@ var initialLocations = [
   }
 ];
 
+var Map = function(data) {
+    this.name = ko.observable(data.name);
+    this.lat = ko.observable(data.lat);
+    this.lon = ko.observable(data.long);
+};
 
 var ViewModel = function() {
+  var self = this;
+
+  //grabs the search data
+  var search = this.query().toLowerCase();
+  console.log('Search query: ' + search);
+
+  this.mapList = ko.observableArray([]);
+
+  initialMap.forEach(function(mapItem) {
+    self.mapList.push( new Map(mapItem) );
+  });
+
+  ko.applyBindings(viewModel);
 
 };
 
@@ -46,7 +64,7 @@ function initMap() {
   // We add a DOM event here to show an alert if the DIV containing the
   // map is clicked.
   google.maps.event.addDomListener(mapDiv, 'click', function() {
-    window.alert('Map was clicked!');
+    console.log('Map was clicked!');
   });
 
 }
