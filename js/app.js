@@ -23,11 +23,25 @@ function initMap() {
     zoom: 15
   });
 
+  //pass info from initial objects and api into this area
   var marker = new google.maps.Marker({
+    draggable: true,
     position: myLatLng,
+    animation: google.maps.Animation.DROP,
     map: map,
     title: 'Hello World!'
   });
+  marker.addListener('click', toggleBounce);
+
+  //adds animation if you click the marker
+
+  function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
 
   // We add a DOM event here to show an alert if the DIV containing the
   // map is clicked.
